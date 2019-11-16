@@ -14,6 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * this activity show you the first 20 numbers from your chosen sidra and give you the option to see the place or the sum of the choosen num
+ */
 public  class Main2Activity extends AppCompatActivity implements View.OnLongClickListener, OnItemLongClickListener {
     int first,hefr,sid,index,summ;
     String fn,hef,ort;
@@ -24,6 +27,9 @@ public  class Main2Activity extends AppCompatActivity implements View.OnLongClic
 
     @Override
 
+    /**
+     * this act create the context menu
+     */
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         menu.setHeaderTitle("Operations");
@@ -31,6 +37,12 @@ public  class Main2Activity extends AppCompatActivity implements View.OnLongClic
         menu.add("sum");
 
     }
+
+    /**
+     * this act set the choosen information on textview
+     * @param item
+     * @return
+     */
     public boolean onContextItemSelected(MenuItem item) {
         String oper=item.getTitle().toString();
         if (oper.equals("sum")) {
@@ -47,6 +59,10 @@ public  class Main2Activity extends AppCompatActivity implements View.OnLongClic
 
         return super.onContextItemSelected(item);}
 
+    /**
+     * this act fill the twenty list with numbers and set the listeners for the listview
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
@@ -125,7 +141,10 @@ public  class Main2Activity extends AppCompatActivity implements View.OnLongClic
     }
 
 
-
+    /**
+     * this act send the user back to the open activity
+     * @param view
+     */
     public void goback(View view) {
         finish();
     }
@@ -133,6 +152,9 @@ public  class Main2Activity extends AppCompatActivity implements View.OnLongClic
 
 
     @Override
+    /**
+     * this is the long click listener and it gave us the information about the position of the num we picked
+     */
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
        index= position;
         return false;
